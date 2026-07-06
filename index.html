@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pit Shop F1 Cafe - Racing & Coffee Experience</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #ff0000 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        
+        header p {
+            font-size: 1.3em;
+            font-style: italic;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background-color: #222;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #ff0000;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        section {
+            background: white;
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        section h2 {
+            color: #ff0000;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #ff0000;
+            padding-bottom: 10px;
+        }
+        
+        section h3 {
+            color: #1a1a1a;
+            font-size: 1.5em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .feature {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-left: 4px solid #ff0000;
+            border-radius: 4px;
+        }
+        
+        .feature h4 {
+            color: #ff0000;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .menu-item {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 6px;
+            border: 2px solid #eee;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(255,0,0,0.2);
+        }
+        
+        .menu-item h4 {
+            color: #ff0000;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        
+        .menu-item p {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 8px;
+        }
+        
+        .price {
+            color: #ff0000;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .contact-box {
+            background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .contact-box h3 {
+            color: #ff0000;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        
+        .contact-info div {
+            text-align: center;
+        }
+        
+        .contact-info label {
+            display: block;
+            color: #ff0000;
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+        
+        .contact-info p {
+            font-size: 1.2em;
+            margin: 5px 0;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .gallery-item {
+            background: #f0f0f0;
+            height: 250px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.9em;
+            border: 2px dashed #ddd;
+        }
+        
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+        
+        footer p {
+            margin: 8px 0;
+            font-size: 0.95em;
+        }
+        
+        .highlight {
+            color: #ff0000;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            nav ul {
+                gap: 15px;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                gap: 30px;
+            }
+            
+            section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>⚡ PIT SHOP F1 CAFE ⚡</h1>
+        <p>Where Speed Meets Coffee Culture</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <!-- About Section -->
+        <section id="about">
+            <h2>Welcome to Pit Shop F1 Cafe</h2>
+            <p>
+                At Pit Shop F1 Cafe, we've created a unique space where Formula 1 enthusiasts and coffee lovers converge. Our cafe isn't just about serving great coffee—it's about creating an experience that captures the thrill, energy, and passion of the racing world.
+            </p>
+            <p style="margin-top: 15px;">
+                Nestled in the heart of Sengottai, Tamil Nadu, we bring the speed and adrenaline of F1 racing into a cozy, welcoming environment. Whether you're a hardcore F1 fan or simply looking for an exceptional coffee experience, Pit Shop F1 Cafe is your destination.
+            </p>
+            
+            <div class="about-grid">
+                <div class="feature">
+                    <h4>🏎️ Racing Atmosphere</h4>
+                    <p>Immerse yourself in an environment decorated with F1 memorabilia, vintage racing posters, and interactive displays that celebrate the history and excitement of Formula 1.</p>
+                </div>
+                <div class="feature">
+                    <h4>☕ Premium Coffee</h4>
+                    <p>We source the finest coffee beans and prepare each cup with precision. Our baristas are trained to perfection, ensuring every visit is memorable.</p>
+                </div>
+                <div class="feature">
+                    <h4>🎬 Live Screening</h4>
+                    <p>Catch all the F1 race action live on our premium screens. No race, no fuss—just pure racing entertainment with your favorite beverage.</p>
+                </div>
+                <div class="feature">
+                    <h4>🤝 Community Hub</h4>
+                    <p>Join fellow F1 enthusiasts, discuss strategies, share predictions, and build lasting friendships over great coffee and exciting racing moments.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2>Your Pit Shop Experience</h2>
+            <h3>What Makes Us Different</h3>
+            <p>
+                We understand that true F1 fans want more than just a place to sit. They want an <span class="highlight">immersive experience</span>. That's why we've designed Pit Shop F1 Cafe with every detail in mind.
+            </p>
+            
+            <h3 style="margin-top: 30px;">Our Specialty</h3>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li>High-definition screens broadcasting F1 races, replays, and highlights</li>
+                <li>Comfortable seating with perfect viewing angles</li>
+                <li>Curated music playlist featuring iconic racing soundtracks</li>
+                <li>Knowledgeable staff passionate about F1 and coffee</li>
+                <li>Monthly F1-themed events and fan discussions</li>
+                <li>Free WiFi for live race tracking and updates</li>
+            </ul>
+            
+            <h3 style="margin-top: 30px;">Perfect For</h3>
+            <p>
+                Study sessions, casual meetups, race watching parties, business meetings, or simply a quiet moment to enjoy exceptional coffee while keeping up with F1 news and updates. Pit Shop F1 Cafe adapts to your needs.
+            </p>
+        </section>
+        
+        <!-- Menu Section -->
+        <section id="menu">
+            <h2>Our Menu</h2>
+            <p>Crafted with passion and precision. Each item is prepared fresh to order.</p>
+            
+            <h3>Coffee Selections</h3>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <h4>Espresso</h4>
+                    <p>Strong, bold, and perfectly concentrated. Pure coffee at its finest.</p>
+                    <span class="price">₹80</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Americano</h4>
+                    <p>Smooth espresso with hot water. A classic favorite.</p>
+                    <span class="price">₹90</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Cappuccino</h4>
+                    <p>Creamy foam art on rich espresso and steamed milk.</p>
+                    <span class="price">₹120</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Latte</h4>
+                    <p>Smooth, creamy, and perfectly balanced espresso and milk.</p>
+                    <span class="price">₹120</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Mocha</h4>
+                    <p>Chocolate and espresso together—a match made in heaven.</p>
+                    <span class="price">₹130</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Cold Brew</h4>
+                    <p>Smooth, chilled, and refreshingly smooth. Perfect for warm days.</p>
+                    <span class="price">₹110</span>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 30px;">Beverages & Snacks</h3>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <h4>Fresh Juices</h4>
+                    <p>Orange, Watermelon, Mix Fruit. Fresh daily.</p>
+                    <span class="price">₹80-100</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Smoothies</h4>
+                    <p>Banana, Mango, Strawberry, and custom blends.</p>
+                    <span class="price">₹120</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Sandwich & Wraps</h4>
+                    <p>Veggie, Chicken, Paneer options with fresh ingredients.</p>
+                    <span class="price">₹100-150</span>
+                </div>
+                <div class="menu-item">
+                    <h4>Pastries & Baked Goods</h4>
+                    <p>Croissants, Brownies, Muffins, and seasonal specials.</p>
+                    <span class="price">₹60-120</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="contact-box">
+                <h3>Get In Touch</h3>
+                <p style="font-size: 1.1em; margin-bottom: 20px;">
+                    Ready to experience the thrill of F1 meets coffee? We're waiting for you!
+                </p>
+                
+                <div class="contact-info">
+                    <div>
+                        <label>📍 Location</label>
+                        <p>Sengottai</p>
+                        <p>Tamil Nadu</p>
+                    </div>
+                    <div>
+                        <label>📱 Contact</label>
+                        <p><strong>Veer Patel</strong></p>
+                        <p style="font-size: 1.3em; color: #ff0000; font-weight: bold;">7892386800</p>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 30px; border-top: 1px solid #555; padding-top: 20px; font-size: 0.95em;">
+                    Open for your racing passion and coffee cravings every day. Visit us soon!
+                </p>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p><strong>Pit Shop F1 Cafe</strong></p>
+        <p>Sengottai, Tamil Nadu | Contact: 7892386800</p>
+        <p>© 2024 Pit Shop F1 Cafe. All rights reserved. Race Hard. Sip Harder.</p>
+    </footer>
+</body>
+</html>
