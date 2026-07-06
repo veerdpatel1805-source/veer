@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pit Shop F1 Cafe - Racing & Coffee Experience</title>
+    <title>Pit Shop F1 Cafe</title>
     <style>
         * {
             margin: 0;
@@ -11,12 +11,8 @@
             box-sizing: border-box;
         }
         
-        html {
-            scroll-behavior: smooth;
-        }
-        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
             line-height: 1.6;
             color: #333;
             background-color: #f4f4f4;
@@ -25,31 +21,26 @@
         header {
             background: linear-gradient(135deg, #1a1a1a 0%, #ff0000 100%);
             color: white;
-            padding: 40px 20px;
+            padding: 30px 20px;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         
         header h1 {
-            font-size: 2.8em;
-            margin-bottom: 10px;
-            font-weight: 700;
-            letter-spacing: 2px;
+            font-size: 2.5em;
+            margin-bottom: 5px;
         }
         
         header p {
-            font-size: 1.2em;
-            font-style: italic;
-            opacity: 0.9;
+            font-size: 1.1em;
         }
         
         nav {
             background-color: #222;
-            padding: 12px 0;
-            position: sticky;
+            padding: 10px 0;
+            position: fixed;
             top: 0;
+            width: 100%;
             z-index: 1000;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
         
         nav ul {
@@ -57,33 +48,35 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 0;
-            max-width: 100%;
         }
         
         nav li {
-            flex: 1;
-            min-width: 120px;
-            text-align: center;
+            margin: 0;
         }
         
         nav a {
             color: white;
             text-decoration: none;
-            font-weight: 600;
-            display: block;
-            padding: 12px 20px;
-            transition: all 0.3s ease;
+            display: inline-block;
+            padding: 10px 20px;
             background-color: #222;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background-color 0.3s;
         }
         
         nav a:hover {
             background-color: #ff0000;
-            color: white;
+        }
+        
+        body {
+            padding-top: 50px;
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -91,94 +84,67 @@
         section {
             background: white;
             margin: 20px 0;
-            padding: 35px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         
         section h2 {
             color: #ff0000;
-            font-size: 2em;
-            margin-bottom: 20px;
-            border-bottom: 3px solid #ff0000;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ff0000;
             padding-bottom: 10px;
         }
         
         section h3 {
             color: #1a1a1a;
-            font-size: 1.3em;
-            margin-top: 20px;
-            margin-bottom: 12px;
-            font-weight: 600;
+            font-size: 1.2em;
+            margin-top: 15px;
+            margin-bottom: 10px;
         }
         
         section p {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             line-height: 1.8;
         }
         
-        .about-grid {
+        .grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 20px;
+            gap: 15px;
+            margin-top: 15px;
         }
         
-        .feature {
-            background-color: #f9f9f9;
-            padding: 18px;
-            border-left: 4px solid #ff0000;
-            border-radius: 4px;
-            transition: transform 0.3s;
+        .box {
+            background: #f9f9f9;
+            padding: 15px;
+            border-left: 3px solid #ff0000;
+            border-radius: 3px;
         }
         
-        .feature:hover {
-            transform: translateY(-3px);
-        }
-        
-        .feature h4 {
+        .box h4 {
             color: #ff0000;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-        
-        .feature p {
-            font-size: 0.95em;
-            color: #666;
+            margin-bottom: 8px;
         }
         
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 15px;
-            margin-top: 20px;
+            margin-top: 15px;
         }
         
-        .menu-item {
+        .item {
             background: #f9f9f9;
-            padding: 18px;
-            border-radius: 6px;
-            border: 2px solid #eee;
-            transition: all 0.3s;
+            padding: 15px;
+            border-radius: 3px;
+            border: 1px solid #ddd;
         }
         
-        .menu-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 12px rgba(255,0,0,0.2);
-            border-color: #ff0000;
-        }
-        
-        .menu-item h4 {
+        .item h4 {
             color: #ff0000;
-            margin-bottom: 8px;
-            font-size: 1.05em;
-            font-weight: 600;
-        }
-        
-        .menu-item p {
-            color: #666;
-            font-size: 0.9em;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
         
         .price {
@@ -187,126 +153,70 @@
             font-size: 1em;
         }
         
-        .contact-box {
+        .contact-section {
             background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
             color: white;
-            padding: 35px;
-            border-radius: 8px;
+            padding: 30px;
+            border-radius: 5px;
             text-align: center;
         }
         
-        .contact-box h3 {
+        .contact-section h3 {
             color: #ff0000;
-            font-size: 1.6em;
-            margin-bottom: 18px;
-            font-weight: 700;
+            margin-bottom: 15px;
         }
         
         .contact-info {
             display: flex;
-            justify-content: center;
-            gap: 50px;
+            justify-content: space-around;
             flex-wrap: wrap;
-            margin-top: 25px;
+            gap: 30px;
+            margin-top: 20px;
         }
         
         .contact-info div {
-            text-align: center;
             flex: 1;
-            min-width: 200px;
+            min-width: 150px;
         }
         
         .contact-info label {
+            color: #ff0000;
+            font-weight: bold;
             display: block;
-            color: #ff0000;
-            font-weight: bold;
             margin-bottom: 8px;
-            font-size: 1em;
         }
         
-        .contact-info p {
-            font-size: 1em;
-            margin: 5px 0;
-        }
-        
-        .contact-phone {
-            font-size: 1.3em;
+        .phone {
+            font-size: 1.2em;
             color: #ff0000;
             font-weight: bold;
-            margin-top: 8px;
-        }
-        
-        .highlight {
-            color: #ff0000;
-            font-weight: bold;
-        }
-        
-        ul {
-            margin-left: 25px;
-            margin-top: 12px;
-        }
-        
-        ul li {
-            margin-bottom: 8px;
-            line-height: 1.6;
         }
         
         footer {
-            background-color: #1a1a1a;
+            background: #1a1a1a;
             color: white;
             text-align: center;
-            padding: 25px 20px;
-            margin-top: 30px;
+            padding: 20px;
+            margin-top: 20px;
         }
         
-        footer p {
-            margin: 6px 0;
-            font-size: 0.9em;
-        }
-        
-        @media (max-width: 768px) {
+        @media (max-width: 600px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
             header h1 {
                 font-size: 1.8em;
             }
             
-            header p {
-                font-size: 1em;
-            }
-            
-            nav li {
-                flex: 0 1 auto;
-                min-width: 100px;
-            }
-            
             nav a {
-                padding: 10px 12px;
+                padding: 8px 12px;
                 font-size: 0.9em;
-            }
-            
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-info {
-                gap: 25px;
-            }
-            
-            section {
-                padding: 20px;
-            }
-            
-            section h2 {
-                font-size: 1.5em;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>⚡ PIT SHOP F1 CAFE ⚡</h1>
-        <p>Where Speed Meets Coffee Culture</p>
-    </header>
-    
     <nav>
         <ul>
             <li><a href="#about">About</a></li>
@@ -314,96 +224,95 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
+
+    <header>
+        <h1>⚡ PIT SHOP F1 CAFE ⚡</h1>
+        <p>Where Speed Meets Coffee Culture</p>
+    </header>
     
     <div class="container">
-        <!-- About Section -->
         <section id="about">
-            <h2>Welcome to Pit Shop F1 Cafe</h2>
-            <p>
-                At Pit Shop F1 Cafe, we've created a unique space where Formula 1 enthusiasts and coffee lovers converge. Our cafe isn't just about serving great coffee—it's about creating an experience that captures the thrill, energy, and passion of the racing world.
-            </p>
-            <p>
-                Nestled in the heart of Sengottai, Tamil Nadu, we bring the speed and adrenaline of F1 racing into a cozy, welcoming environment. Whether you're a hardcore F1 fan or simply looking for an exceptional coffee experience, Pit Shop F1 Cafe is your destination.
-            </p>
+            <h2>About Us</h2>
+            <p>Welcome to Pit Shop F1 Cafe, located in Sengottai, Tamil Nadu. We've created a unique space where Formula 1 enthusiasts and coffee lovers come together.</p>
+            <p>Our cafe brings the speed and adrenaline of F1 racing into a cozy environment. Whether you're a hardcore F1 fan or simply looking for exceptional coffee, Pit Shop F1 Cafe is your destination.</p>
             
             <h3>Why Choose Us?</h3>
-            <div class="about-grid">
-                <div class="feature">
+            <div class="grid">
+                <div class="box">
                     <h4>🏎️ Racing Atmosphere</h4>
-                    <p>Immerse yourself in an environment decorated with F1 memorabilia and vintage racing posters celebrating the history of Formula 1.</p>
+                    <p>F1 memorabilia and racing posters celebrating the history of Formula 1.</p>
                 </div>
-                <div class="feature">
+                <div class="box">
                     <h4>☕ Premium Coffee</h4>
-                    <p>We source the finest coffee beans and prepare each cup with precision. Our baristas are trained to perfection.</p>
+                    <p>Finest coffee beans prepared with precision by trained baristas.</p>
                 </div>
-                <div class="feature">
+                <div class="box">
                     <h4>🎬 Live Screening</h4>
-                    <p>Catch all the F1 race action live on our premium screens with pure racing entertainment.</p>
+                    <p>Watch all F1 races live on our premium screens.</p>
                 </div>
-                <div class="feature">
+                <div class="box">
                     <h4>🤝 Community Hub</h4>
-                    <p>Join fellow F1 enthusiasts and build lasting friendships over great coffee and exciting racing moments.</p>
+                    <p>Join fellow F1 enthusiasts and build lasting friendships.</p>
                 </div>
             </div>
         </section>
         
-        <!-- Menu Section -->
         <section id="menu">
             <h2>Our Menu</h2>
-            <p>Crafted with passion and precision. Each item is prepared fresh to order.</p>
+            <p>Crafted with passion. Each item is prepared fresh to order.</p>
             
             <h3>Coffee Selections</h3>
             <div class="menu-grid">
-                <div class="menu-item">
+                <div class="item">
                     <h4>Espresso</h4>
-                    <p>Strong, bold, and perfectly concentrated.</p>
+                    <p>Strong and concentrated.</p>
                     <span class="price">₹80</span>
                 </div>
-                <div class="menu-item">
+                <div class="item">
                     <h4>Americano</h4>
                     <p>Smooth espresso with hot water.</p>
                     <span class="price">₹90</span>
                 </div>
-                <div class="menu-item">
+                <div class="item">
                     <h4>Cappuccino</h4>
-                    <p>Creamy foam art with rich espresso.</p>
+                    <p>Creamy foam with rich espresso.</p>
                     <span class="price">₹120</span>
                 </div>
-                <div class="menu-item">
+                <div class="item">
                     <h4>Latte</h4>
-                    <p>Smooth, creamy, and perfectly balanced.</p>
+                    <p>Smooth and creamy.</p>
                     <span class="price">₹120</span>
                 </div>
-                <div class="menu-item">
+                <div class="item">
                     <h4>Mocha</h4>
-                    <p>Chocolate and espresso together.</p>
+                    <p>Chocolate and espresso.</p>
                     <span class="price">₹130</span>
                 </div>
-                <div class="menu-item">
+                <div class="item">
                     <h4>Cold Brew</h4>
-                    <p>Smooth and refreshingly chilled.</p>
+                    <p>Smooth and chilled.</p>
                     <span class="price">₹110</span>
                 </div>
             </div>
             
-            <h3 style="margin-top: 30px;">Beverages & Snacks</h3>
+            <h3>Beverages & Snacks</h3>
             <div class="menu-grid">
-                <div class="menu-item">
+                <div class="item">
                     <h4>Fresh Juices</h4>
-                    <p>Orange, Watermelon, Mix Fruit. Fresh daily.</p>
+                    <p>Orange, Watermelon, Mix Fruit.</p>
                     <span class="price">₹80-100</span>
                 </div>
-                <div class="menu-item">
+                <div class="item">
                     <h4>Smoothies</h4>
-                    <p>Banana, Mango, Strawberry blends.</p>
+                    <p>Banana, Mango, Strawberry.</p>
                     <span class="price">₹120</span>
                 </div>
-                <div class="menu-item">
+                <div class="item">
                     <h4>Sandwiches</h4>
-                    <p>Veggie, Chicken, Paneer options.</p>
+                    <p>Veggie, Chicken, Paneer.</p>
                     <span class="price">₹100-150</span>
                 </div>
-                <div class="menu-item">
+                <div class="item">
                     <h4>Pastries</h4>
                     <p>Croissants, Brownies, Muffins.</p>
                     <span class="price">₹60-120</span>
@@ -411,32 +320,28 @@
             </div>
         </section>
         
-        <!-- Contact Section -->
         <section id="contact">
-            <div class="contact-box">
+            <div class="contact-section">
                 <h3>Get In Touch</h3>
-                <p style="font-size: 1em; margin-bottom: 20px;">
-                    Ready to experience the thrill of F1 meets coffee? We're waiting for you!
-                </p>
+                <p>Ready to experience F1 meets coffee? Contact us!</p>
                 
                 <div class="contact-info">
                     <div>
                         <label>📍 Location</label>
-                        <p>Sengottai</p>
-                        <p>Tamil Nadu</p>
+                        <p>Sengottai<br>Tamil Nadu</p>
                     </div>
                     <div>
                         <label>👤 Owner</label>
-                        <p><strong>Veer Patel</strong></p>
+                        <p>Veer Patel</p>
                     </div>
                     <div>
-                        <label>📱 Contact Number</label>
-                        <p class="contact-phone">7892386800</p>
+                        <label>📱 Phone</label>
+                        <p class="phone">7892386800</p>
                     </div>
                 </div>
                 
-                <p style="margin-top: 25px; border-top: 1px solid #555; padding-top: 20px; font-size: 0.9em;">
-                    Open every day. Visit us soon! Race Hard. Sip Harder.
+                <p style="margin-top: 20px; border-top: 1px solid #555; padding-top: 15px;">
+                    Open every day. Race Hard. Sip Harder.
                 </p>
             </div>
         </section>
@@ -444,8 +349,21 @@
     
     <footer>
         <p><strong>Pit Shop F1 Cafe</strong></p>
-        <p>Sengottai, Tamil Nadu | Contact: 7892386800 | Owner: Veer Patel</p>
+        <p>Sengottai, Tamil Nadu | 7892386800 | Owner: Veer Patel</p>
         <p>© 2024 Pit Shop F1 Cafe. All rights reserved.</p>
     </footer>
+
+    <script>
+        document.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                var targetId = this.getAttribute('href').substring(1);
+                var targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
